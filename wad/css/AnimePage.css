@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+			body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .content {
+                max-width: 100%;
+                margin: auto;
+                background: white;
+            }
+			
+			.MiddleContent{
+				max-width: 80%;
+				margin:auto;
+			}
+            .image {
+                float: right;
+                max-width: 17.68%;
+                height: 60%;
+                background: #ccc;
+                padding: 20px;
+            }
+
+            .info {
+                float: left;
+                padding: 20px;
+                width: 75%;
+                height: 100%;
+                background-color: white;
+                display: table;
+            }
+
+
+            .image button {
+                border: none;
+                outline: 0;
+                padding: 12px;
+                color: white;
+                background-color: #000;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+                font-size: 18px;
+            }
+
+            .price {
+                color: red;
+                font-size: large;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            #table {
+                border-color: #000;
+            }
+
+            .title {
+                font-weight: bold;
+                font-size: large;
+                text-align: center;
+            }

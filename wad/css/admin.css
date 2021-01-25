@@ -1,0 +1,74 @@
+#user {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #user td, #user th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #user tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #user tr:hover {background-color: #ddd;}
+  
+  #user th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #FF1493;
+    color: white;
+  }
+
+  #anime {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #anime td, #anime th {
+    border:  1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #anime tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #anime tr:hover {background-color: #ddd;}
+  
+  #anime th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #FF1493;
+    color: white;
+  }
+
+  .test {
+      width: 80%;
+  }
+
+  .user {
+      float: right;
+      padding: 3px 7px;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      color: #fff;
+      background-color: blue;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px #999;
+  }
+
+.user:hover {background-color: red}
+
+.user:active {
+  background-color: red;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
