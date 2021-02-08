@@ -32,11 +32,18 @@
     			<th>Orders</th>
         		<th>Date</th>
         		<th>Status</th>
+        		<th>Refund</th>
   			</tr>
   			<tr>
     			<td>Order ID</td>
       			<td>dd-mm-yy</td>
       			<td>Status</td>
+      			<td><button onclick="refundFunction()">Refund</button></td>
+				<?php
+					function requestFunction(){
+					//
+					}
+				?>
   			</tr>
   
 		</table>
