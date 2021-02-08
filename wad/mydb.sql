@@ -131,6 +131,26 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `phoneNumber`, `addr
 (93, 'PlayerThere', 'haha@haha.com', '1a1dc91c907325c69271ddf0c944bc72', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
+-- Table structure for table `discount_coupon`
+--
+
+CREATE TABLE `discount_coupon` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `discount_code` varchar(32) NOT NULL,
+  `price` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `discount_coupon`
+--
+
+INSERT INTO `discount_coupon` (`id`, `discount_code`, `price`) VALUES
+(1, 'PROMO10', 10),
+(2, 'PROMO30', 30),
+(3, 'PROMO50', 50),
+(4, 'PROMO70', 70);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -156,6 +176,12 @@ ALTER TABLE `products`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `discount_coupon`
+--
+ALTER TABLE `discount_coupon`
   ADD PRIMARY KEY (`id`);
 
 --
