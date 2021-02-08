@@ -10,10 +10,11 @@
 		unset($_SESSION['username']);
 		header("location: index.php");
 	}
-	
-
 ?>
 
+<script>
+function search(){if (confirm("Nothing found") == true) {}}
+</script>
 <div class="topnav">
 	<a href="index.php" style="font-size:20px;"><strong>MyAnimeBuy</strong></a>
 	<a></a>
@@ -22,6 +23,7 @@
 	<a href="Popular.php">Popular</a>
 	<a href="Genre.php">Genre</a>
 	<a href="About.php">About Us</a>
+	
 	<?php  if (isset($_SESSION['username'])) : ?>
 	<div class="dropdown">
 		<button class="dropbtn">Account
@@ -30,19 +32,15 @@
 		<div class="dropdown-content">
 			<a href="AccountDetails.php">Account Details</a>
 			<a href="Order.php">Order</a>
+			<a href="Feedback.php">Give Feedback</a>
 		</div>	
 	</div>
 	<?php endif ?>
-	
-	<!-- search function hiz -->
-	<form method="post" class="example" action="search.php" style="margin:auto;max-width:300px">
-  			<input type="text" placeholder="Search Anime" name="search"  style = "height:4%">
-  			<button type="submit" style = "height:4%"><i class="fa fa-search"></i></button>
+	<form class="example" action="index.php" style="margin:auto;max-width:300px">
+  			<input type="text" placeholder="Search Anime" name="search2"  style = "height:4%">
+  			<button onclick="search()" style = "height:4%"><i class="fa fa-search"></i></button>
 	</form>
            	
-     
-
-	
 	<?php  if (!isset($_SESSION['username'])) : ?>
 		<button onclick="location.href='signup.php'" style="width:auto; float:right; margin-right: 1%; background-color: #9999ff">Sign Up</button>
 		<button onclick="location.href='signin.php'" style="width:auto; float:right; margin-right: 1%; background-color: #b366ff">Login</button>
