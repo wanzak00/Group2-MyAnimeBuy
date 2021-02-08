@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2020 at 09:25 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: Feb 07, 2021 at 02:25 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,6 +39,27 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 (1, 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `content` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `name`, `email`, `subject`, `content`) VALUES
+(1, 'zakwan', 'zacky00@gmail.com', 'this Feedback system', 'This is a really good system');
 
 -- --------------------------------------------------------
 
@@ -128,7 +149,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `phoneNumber`, `address`, `creditCardNo`, `CCName`, `CCExpiry`, `CCValidationCode`) VALUES
-(93, 'PlayerThere', 'haha@haha.com', '1a1dc91c907325c69271ddf0c944bc72', NULL, NULL, NULL, NULL, NULL, NULL);
+(0, 'Adam', 'haha@haha.com', '1d7c2923c1684726dc23d2901c4d8157', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'zakwan', 'zacky00@gmail.com', 'zakwan', 126909485, 'Jalan Suasana 4/2', NULL, NULL, NULL, NULL);
 
 --
 -- Table structure for table `discount_coupon`
@@ -155,27 +177,9 @@ INSERT INTO `discount_coupon` (`id`, `discount_code`, `price`) VALUES
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `feedback`
 --
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
+ALTER TABLE `feedback`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -189,28 +193,10 @@ ALTER TABLE `discount_coupon`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `feedback`
 --
-ALTER TABLE `admin`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+ALTER TABLE `feedback`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
