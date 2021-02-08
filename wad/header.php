@@ -12,9 +12,7 @@
 	}
 ?>
 
-<script>
-function search(){if (confirm("Nothing found") == true) {}}
-</script>
+
 <div class="topnav">
 	<a href="index.php" style="font-size:20px;"><strong>MyAnimeBuy</strong></a>
 	<a></a>
@@ -36,9 +34,11 @@ function search(){if (confirm("Nothing found") == true) {}}
 		</div>	
 	</div>
 	<?php endif ?>
-	<form class="example" action="index.php" style="margin:auto;max-width:300px">
-  			<input type="text" placeholder="Search Anime" name="search2"  style = "height:4%">
-  			<button onclick="search()" style = "height:4%"><i class="fa fa-search"></i></button>
+	
+	<!-- search function hiz -->
+	<form method="post" class="example" action="search.php" style="margin:auto;max-width:300px">
+  			<input type="text" placeholder="Search Anime" name="search"  style = "height:4%">
+  			<button type="submit" style = "height:4%"><i class="fa fa-search"></i></button>
 	</form>
            	
 	<?php  if (!isset($_SESSION['username'])) : ?>

@@ -110,6 +110,19 @@ if (!$conn) {
 					     } else {
 					       echo "Error creating table: " . $conn->error;
 					     }
+		
+		//DISCOUNT COUPON - NABIL
+		// CREATE TABLE discount_coupon (
+		  // id int(6) UNSIGNED NOT NULL,
+		  // discount_code varchar(32) NOT NULL,
+		  // price int(6) NOT NULL
+		// ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+		
+		// INSERT INTO discount_coupon (id, discount_code, price) VALUES
+		// (1, 'PROMO10', 10),
+		// (2, 'PROMO30', 30),
+		// (3, 'PROMO50', 50),
+		// (4, 'PROMO70', 70);
 
  $conn->close();
 ?>
