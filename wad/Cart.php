@@ -6,6 +6,7 @@ function removeitem(prodid){
 	}
 }
 </script>
+
 <?php
 if(isset($_GET['action'])){
   if($_GET['action']=='deleteitem'){
@@ -17,7 +18,20 @@ if(isset($_GET['action'])){
     }
 }
 ?>
+<?php
+$discount = 0; // default value
+$discountid = "";
 
+// Make sure a value was sent
+if(isset($_POST['discountid'])) {
+	if(!empty($_POST['discountid'])) {
+		$discountid = $_POST['discountid'];
+		$c = mysqli_query($db, "SELECT price FROM `discount_coupon` WHERE discount_code='$discountid'");
+		$d = mysqli_fetch_array($c);
+		$discount = $d[0];
+	}
+}
+?>
 <!DOCTYPE html>
 <html>
     <title>Anime</title>
@@ -27,9 +41,10 @@ if(isset($_GET['action'])){
     <head>
         <link rel="stylesheet" href="css/top_nav.css">
 		<link rel="stylesheet" href="css/home_page.css">
-        <link rel="stylesheet" href="css/cart.css">
+        <link rel="stylesheet" href="css/cart.css" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
+
+	</head>
 
     <header>
 		<?php include"header.php" ?>
@@ -42,6 +57,7 @@ if(isset($_GET['action'])){
               <th class="test">Number of Item</th>
               <th class="title">Title</th>
               <th>Price</th>
+			  <th>Delete Item</th>
             </tr>
 			<?php
 			$total=0;
@@ -65,16 +81,34 @@ if(isset($_GET['action'])){
 			}
 			?>
         </table>
-        <br>
+		<br>
         <table id="total">
             <tr>
-                <th class="subtotal">Total</th>
-                <td>RM<?php echo $total?></td>
+                <th class="cart-discount">Discount</th>
+                <td>RM <?php echo $discount?></td>
             </tr>
         </table>
-
         <br>
-        
+		<table id="total">
+            <tr>
+                <th class="subtotal">Total</th>
+                <td>RM <?php 
+				$total = $total - $discount;
+				echo $total
+				?></td>
+            </tr>
+        </table>
+		<br>
+		<form action="cart.php" method="post">
+		 <input class ="discount-code" id="discountid" type="text" name="discountid" 
+		 placeholder="Enter Coupon Code" size="15" />
+		 <input class="apply" type="submit" value="Apply Coupon" />
+		</form>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
         <a href="Checkout.php">
         <button class="button">Proceed to Checkout</button></a>
 
