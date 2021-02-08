@@ -7,6 +7,10 @@
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
+CREATE DATABASE mydb;
+
+USE mydb;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
