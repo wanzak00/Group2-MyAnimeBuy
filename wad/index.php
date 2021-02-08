@@ -64,7 +64,7 @@
 
 		<div class='row'>
 		<?php
-		$sql = "SELECT id, title FROM products";
+		$sql = "SELECT id, title, like_count FROM products";
 		$result = mysqli_query($db, $sql);
 
 		if (mysqli_num_rows($result) > 0) 
@@ -78,11 +78,17 @@
               	</a>
               	<p class='title'>$row[title]</p>
               	<p>Ranked: #$row[id]</p>
+				<p> $row[like_count] likes </p>
+
             </div>";
 			}
 		}
+		
+
 		?>
 		</div>
+		
+				
 
 	</div>
 	<script>

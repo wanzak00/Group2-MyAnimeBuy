@@ -18,7 +18,7 @@
             .image {
                 float: right;
                 max-width: 17.68%;
-                height: 60%;
+                height: 70%;
                 background: #ccc;
                 padding: 20px;
             }
@@ -61,3 +61,21 @@
                 font-size: large;
                 text-align: center;
             }
+
+			.like {
+                font-weight: bold;
+                font-size: 12pt;
+                text-align: center;
+            }
+			
+			button.btnlike {
+				border: none;
+                outline: 0;
+                padding: 12px;
+                color: White;
+                background-color: #008CBA;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+                font-size: 18px;
+			}

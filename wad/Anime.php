@@ -4,6 +4,10 @@
 function itemadded(){
 	alert("Item added to your cart!")
 	}
+function likebtn(){
+	alert("Thank you for like!!")
+	button.disabled = true;
+}
 </script>
 
 <!DOCTYPE html>
@@ -44,14 +48,20 @@ function itemadded(){
             "<div class='image'>
                 <img src='Images/Anime$row[id].jpg' class='img-thumbnail img-responsive' alt='$row[title]' width='100%'/>
                 <p class='title'>$row[title]</p>
-                <p class='price'>$row[price]</p>
+				<p class='price'>$row[price]</p>
+				
 				
 				<form method='post'>
 				<input type='hidden' name='title' id='title' value='$row[title]'>
 				<input type='hidden' name='price' id='price' value='$row[price]'>
-				<button class='btn' type='submit' name='addtocart' onclick='itemadded()'>Add to cart</button>
-				</form>
+				<input type='hidden' name='id' id='id' value='$row[id]'>
 				
+				<button class='btn' type='submit' name='addtocart' onclick='itemadded()'>Add to cart</button>
+			
+				<button class='button btnlike' id='btnlike' type='submit' name='like' onclick='likebtn()'>Like</button>
+				
+				</form>
+				<p class='like'>$row[like_count] likes </p>
 				
             </div>
             
@@ -118,7 +128,25 @@ function itemadded(){
 					$price = $_POST['price'];
 					mysqli_query($db, "INSERT INTO orders (title, price) VALUES ('$title', '$price' )");
 				}
+			
+				
 				?>
+				
+				<?php
+				
+				$id = "";
+			
+				if (isset($_POST['like'])){
+				$postid = $_POST['id'];
+				$result2 = mysqli_query($db, "SELECT * FROM products WHERE id=$postid");
+				$row2 = mysqli_fetch_array($result2);
+				$n = $row2['like_count'];
+				
+				mysqli_query($db, "INSERT INTO products_likes (id, post_id) VALUES (NULL, $postid)");
+				mysqli_query($db, "UPDATE products SET like_count=$n+1 WHERE id=$postid ");
+				}
+				?>
+	
         </section>
         </div>
     </div>
