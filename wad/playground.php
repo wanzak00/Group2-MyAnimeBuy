@@ -14,12 +14,12 @@ if (!$conn) {
 
 // Create database
 
-// $sql = "CREATE DATABASE myDB";
-// if ($conn->query($sql) === TRUE) {
-//   echo "Database created successfully";
-// } else {
-//   echo "Error creating database: " . $conn->error;
-// }
+ //$sql = "CREATE DATABASE myDB";
+ //if ($conn->query($sql) === TRUE) {
+ //  echo "Database created successfully";
+ //} else {
+ //  echo "Error creating database: " . $conn->error;
+ //}
 
 // sql to create table
 
@@ -96,5 +96,20 @@ if (!$conn) {
 			 // echo "Error creating table: " . $conn->error;
 			 // }
 
-// $conn->close();
+
+					 $sql = "CREATE TABLE feedback (
+					     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+					     name VARCHAR(32) NOT NULL,
+					     email VARCHAR(50) NOT NULL,
+					     subject VARCHAR(100) NOT NULL,
+						 content VARCHAR(500) NOT NULL
+					     )";
+						
+					     if ($conn->query($sql) === TRUE) {
+					       echo "Table Feedback created successfully";
+					     } else {
+					       echo "Error creating table: " . $conn->error;
+					     }
+
+ $conn->close();
 ?>

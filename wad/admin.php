@@ -10,6 +10,11 @@ function delanime(animeid) {
 		window.location.replace("admin.php?action=deleteanime&animeid="+animeid);
     }
 }
+function delfeedback(feedbackid) {
+    if (confirm("Are you sure want to delete this feedback!") == true) {
+		window.location.replace("admin.php?action=deletefeedback&feedbackid="+feedbackid);
+    }
+}
 </script>
 
 <?php
@@ -35,6 +40,20 @@ if(isset($_GET['action'])){
     }
 }
 ?>
+
+<?php
+if(isset($_GET['action'])){
+  if($_GET['action']=='deletefeedback'){
+      if(isset($_GET['feedbackid'])){
+        $id = $_GET['feedbackid'];
+        mysqli_query($db, "DELETE FROM `feedback` WHERE id='$id'");
+        header('location: admin.php');
+      }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
     <title>Anime</title>
@@ -108,5 +127,34 @@ if(isset($_GET['action'])){
         }
         ?>
         </table>
+		
+		<br>
+		
+		
+		<table id="anime">
+            <tr>
+              <th class="test">Feedback</th>
+            </tr>
+        <?php
+        $sql ="SELECT * FROM feedback";
+        $result = mysqli_query($db, $sql);
+
+        if (mysqli_num_rows($result) > 0) 
+        {
+            while($row = mysqli_fetch_assoc($result)) 
+            {
+            echo
+            "<tr>
+              <td>$row[name]</td>
+              <td>
+                <a href='adminViewFeedback.php?id={$row["id"]}'>
+                    <button type='edit'>View</button></a>
+                    <button onclick='delfeedback($row[id])'>Delete</button>
+              </td>
+            </tr>";
+            }   
+        }
+        ?>
+            </table>
     </body>
 </html>
